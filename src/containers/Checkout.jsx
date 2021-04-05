@@ -11,11 +11,7 @@ const Checkout = () => {
     removeFromCart(product);
   };
 
-  const handleSumTotal = () => {
-    const reducer = (accumulator, currentValue) => accumulator + currentValue.price;
-    const sum = cart.reduce(reducer, 0);
-    return sum;
-  }
+  const handleSumTotal = () => sumTotal(cart)
 
   return (
     <div className="Checkout">

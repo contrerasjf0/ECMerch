@@ -2,7 +2,7 @@ import React, { useRef, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import AppContext from '../context/AppContext'
 
-const Information = () => {
+const Information = ({ history }) => {
 
   const { state, addToBuyer } = useContext(AppContext);
   const form = useRef(null);
@@ -22,6 +22,7 @@ const Information = () => {
       'phone': formData.get('phone'),
     }
     addToBuyer(buyer);
+    history.push('/checkout/payment');
   }
 
   return (
