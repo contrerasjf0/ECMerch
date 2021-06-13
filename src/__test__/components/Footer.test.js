@@ -12,6 +12,6 @@ describe('Test Footer component', () => {
   })
 
   it('Render title', () => {
-    expect(footer.find('.Fotter-title').text()).toEqual('EC Merch')
+    expect(footer.find('.Footer-title').text()).toEqual('EC Merch')
   })
 })
