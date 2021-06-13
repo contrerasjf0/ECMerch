@@ -2,7 +2,7 @@ import React from 'react';
 import { mount, shallow } from 'enzyme';
 import ProviderMock from '../../__mocks__/ProviderMock';
 import Header from '../../components/Header'
-import { it } from '@jest/globals';
+import { create } from 'react-test-renderer'
 
 describe('<Header />', () => {
   
@@ -27,4 +27,15 @@ describe('<Header />', () => {
     expect(header.find('.Header-title a').text()).toEqual('EC Merch')
   })
 
+  describe('Header SnapShot', () => {
+    it('Check Header snapshot', () => {
+      const header = create(
+      <ProviderMock>
+        <Header/>
+      </ProviderMock>
+      )
+
+      expect(header.toJSON()).toMatchSnapshot()
+    })
+  })
 })

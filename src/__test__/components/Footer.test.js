@@ -2,6 +2,7 @@
 import React from 'react'
 import { mount } from 'enzyme'
 import Footer from '../../components/Footer'
+import { create } from 'react-test-renderer'
 
 describe('Test Footer component', () => {
   const footer = mount(<Footer/>)
@@ -13,5 +14,12 @@ describe('Test Footer component', () => {
 
   it('Render title', () => {
     expect(footer.find('.Footer-title').text()).toEqual('EC Merch')
+  })
+})
+
+describe('Footer Snapshot', () => {
+  it('Check UI of Footer component', () => {
+    const footer = create(<Footer />);
+    expect(footer.toJSON()).toMatchSnapshot()
   })
 })
